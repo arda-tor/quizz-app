@@ -8,7 +8,7 @@ export const questions: QuizQuestion[] = [
   },
   {
     question: 'Which planet is known as the Red Planet?',
-    answers: ['Venus', 'Mars', 'Jupiter', 'Saturn','Saturn'],
+    answers: ['Venus', 'Mars', 'Jupiter', 'Saturn'],
     correctIndex: 1,
   },
   {
@@ -17,16 +17,18 @@ export const questions: QuizQuestion[] = [
     correctIndex: 3,
   },
   {
-    question: 'What is the largest ocean on Earth?',
-    answers: ['Atlantic', 'Indian', 'Arctic', 'Pacific'],
-    correctIndex: 4,
-  },{
-    question: 'What is the largest ocean on Earth?',
-    answers: ['Atlantic', 'Indian', 'Arctic', 'Pacific'],
-    correctIndex: 5,
-  },{
-    question: 'What is the largest ocean on Earth?',
-    answers: ['Atlantic', 'Indian', 'Arctic', 'Pacific'],
-    correctIndex: 6,
+    question: 'Who painted the Mona Lisa?',
+    answers: ['Vincent van Gogh', 'Pablo Picasso', 'Leonardo da Vinci', 'Claude Monet'],
+    correctIndex: 2,
+  },
+  {
+    question: 'What is the chemical symbol for gold?',
+    answers: ['Go', 'Gd', 'Au', 'Ag'],
+    correctIndex: 2,
+  },
+  {
+    question: 'In which year did World War II end?',
+    answers: ['1943', '1945', '1947', '1950'],
+    correctIndex: 1,
   },
 ]
