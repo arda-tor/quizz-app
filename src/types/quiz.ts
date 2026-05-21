@@ -1,3 +1,5 @@
+type ConfidenceLevel = 1 | 2 | 3
+
 interface QuizQuestion {
   question: string
   answers: string[]
@@ -7,6 +9,34 @@ interface QuizQuestion {
 interface AnswerState {
   selectedIndex: number
   submitted: boolean
+  confidence: ConfidenceLevel
 }
 
-export type { QuizQuestion, AnswerState }
+interface ConfidenceOption {
+  value: ConfidenceLevel
+  label: string
+  detail: string
+}
+
+interface ConfidenceBucket {
+  correct: number
+  incorrect: number
+}
+
+interface AnswerJournalItem {
+  questionIndex: number
+  question: string
+  correct: boolean
+  confidence: ConfidenceLevel
+  selectedAnswer: string | undefined
+  correctAnswer: string | undefined
+}
+
+export type {
+  AnswerJournalItem,
+  AnswerState,
+  ConfidenceBucket,
+  ConfidenceLevel,
+  ConfidenceOption,
+  QuizQuestion,
+}
