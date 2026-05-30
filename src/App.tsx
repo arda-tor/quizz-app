@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import ConfidenceSelector from './components/ConfidenceSelector'
 import QuestionCard from './components/QuestionCard'
+import QuestionImport from './components/QuestionImport'
 import QuizResults from './components/QuizResults'
-import { questions } from './data/question'
+import { questions as starterQuestions } from './data/question'
 import { getAnswerInsight, getQuizResults } from './utils/quizStats'
-import type { AnswerState, ConfidenceLevel } from './types/quiz'
+import type { AnswerState, ConfidenceLevel, QuizQuestion } from './types/quiz'
 
 function App() {
+  const [questions, setQuestions] = useState<QuizQuestion[]>(starterQuestions)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [answers, setAnswers] = useState<Record<number, AnswerState>>({})
 
@@ -75,6 +77,11 @@ function App() {
     setCurrentQuestionIndex(0)
   }
 
+  function handleQuestionsLoaded(nextQuestions: QuizQuestion[]) {
+    setQuestions(nextQuestions)
+    handleRestart()
+  }
+
   return (
     <div className="min-h-svh flex flex-col items-center justify-center bg-linear-to-br from-white via-[#f8fbff] to-[#fff6df] px-4 py-12">
       <header className="mb-10 text-center">
@@ -88,6 +95,8 @@ function App() {
       </header>
 
       <main className="w-full max-w-xl rounded-3xl border border-border bg-white/85 p-10 shadow-(--shadow) backdrop-blur-sm max-lg:px-6 max-lg:py-8">
+        <QuestionImport onQuestionsLoaded={handleQuestionsLoaded} />
+
         {isFinished ? (
           <QuizResults
             score={quizResults.score}
